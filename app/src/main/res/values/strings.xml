@@ -8,4 +8,8 @@
     <string name="like">LIKE</string>
     <string name="website">WEBSITE</string>
     <string name="restaurant_favorite">Add restaurant to favorite</string>
+    <string name="user_photo">user photo</string>
+    <string name="your_lunch">YOUR LUNCH</string>
+    <string name="settings">SETTINGS</string>
+    <string name="logout">LOGOUT</string>
 </resources>
