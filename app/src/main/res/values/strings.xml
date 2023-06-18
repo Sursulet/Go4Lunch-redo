@@ -4,4 +4,8 @@
     <string name="how_many_workmates">How many workmates go to this restaurant.</string>
     <string name="restaurant_photo">The restaurant\'s photo</string>
     <string name="workmate_photo">The workmate photo</string>
+    <string name="call">CALL</string>
+    <string name="like">LIKE</string>
+    <string name="website">WEBSITE</string>
+    <string name="restaurant_favorite">Add restaurant to favorite</string>
 </resources>
