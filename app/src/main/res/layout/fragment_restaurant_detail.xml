@@ -1,14 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".ui.detail.RestaurantDetailFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            style="?attr/collapsingToolbarLayoutLargeStyle"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/collapsingToolbarLayoutLargeSize">
+
+            <ImageView
+                android:id="@+id/photo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/restaurant_photo"
+                android:fitsSystemWindows="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/baseline_no_photography_24" />
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:elevation="0dp" />
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:padding="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Le Zinc" />
+
+            <RatingBar
+                android:id="@+id/rating"
+                style="?attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:numStars="1"
+                android:progressTint="#ffff00"
+                android:rating="1"
+                app:layout_constraintBottom_toBottomOf="@+id/name"
+                app:layout_constraintStart_toEndOf="@+id/name"
+                app:layout_constraintTop_toTopOf="@+id/name" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/name"
+                tools:text="French restaurant - 12 rue du Faubourg Poisonnière" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/call"
+            style="@style/Widget.Material3.Button.TextButton.Icon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/call"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            app:icon="@drawable/baseline_phone_24"
+            app:iconGravity="top"
+            app:iconSize="36dp"
+            app:iconTint="@color/colorPrimary"
+            app:layout_constraintEnd_toStartOf="@+id/like"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title" />
+
+        <Button
+            android:id="@+id/like"
+            style="@style/Widget.Material3.Button.TextButton.Icon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/like"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            app:icon="@drawable/baseline_star_24"
+            app:iconGravity="top"
+            app:iconSize="36dp"
+            app:iconTint="@color/colorPrimary"
+            app:layout_constraintEnd_toStartOf="@+id/website"
+            app:layout_constraintStart_toEndOf="@+id/call"
+            app:layout_constraintTop_toBottomOf="@+id/title" />
+
+        <Button
+            android:id="@+id/website"
+            style="@style/Widget.Material3.Button.TextButton.Icon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/website"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            app:icon="@drawable/baseline_public_24"
+            app:iconGravity="top"
+            app:iconSize="36dp"
+            app:iconTint="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/like"
+            app:layout_constraintTop_toBottomOf="@+id/title" />
+
+        <include
+            layout="@layout/fragment_workmates"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/like" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/isFavorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/white"
+        android:contentDescription="@string/restaurant_favorite"
+        android:src="@drawable/baseline_check_circle_24"
+        app:layout_anchor="@id/appbar"
+        app:layout_anchorGravity="bottom|end" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
