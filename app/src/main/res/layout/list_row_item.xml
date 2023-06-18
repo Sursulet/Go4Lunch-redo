@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:padding="8dp">
 
     <TextView
         android:id="@+id/name"
@@ -12,16 +12,16 @@
         android:layout_height="wrap_content"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/photo"
         tools:text="Le Zinc" />
 
     <TextView
         android:id="@+id/address"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textSize="12sp"
-        android:maxLines="1"
         android:ellipsize="end"
+        android:maxLines="1"
+        android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/opening"
         app:layout_constraintEnd_toStartOf="@+id/distance"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:textSize="12sp"
         android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintBottom_toBottomOf="@+id/photo"
         app:layout_constraintStart_toStartOf="parent"
         tools:text="Open until 7pm" />
 
@@ -43,19 +43,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toStartOf="@+id/photo"
+        app:layout_constraintTop_toTopOf="@+id/photo"
         tools:text="120m" />
 
     <ImageView
+        android:id="@+id/workmates"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
+        android:contentDescription="@string/how_many_workmates"
         android:src="@drawable/baseline_person_outline_24"
         app:layout_constraintBottom_toTopOf="@+id/ratingBar"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/distance"
-        android:contentDescription="TODO" />
+        app:layout_constraintEnd_toStartOf="@+id/photo"
+        app:layout_constraintTop_toBottomOf="@+id/distance" />
 
     <RatingBar
         android:id="@+id/ratingBar"
@@ -63,16 +64,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
+        android:isIndicator="true"
+        android:progressBackgroundTint="@color/black"
+        android:progressTint="#ffff00"
+        android:stepSize="1"
+        app:layout_constraintBottom_toBottomOf="@+id/photo"
+        app:layout_constraintEnd_toStartOf="@+id/photo"
         tools:numStars="2"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toStartOf="@+id/imageView" />
+        tools:rating="1" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/photo"
         android:layout_width="90dp"
         android:layout_height="90dp"
-        android:contentDescription="TODO"
         android:background="@android:color/darker_gray"
+        android:contentDescription="@string/restaurant_photo"
         android:src="@drawable/baseline_no_photography_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
