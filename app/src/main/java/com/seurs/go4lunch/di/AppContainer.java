@@ -1,5 +1,11 @@
 package com.seurs.go4lunch.di;
 
+import static com.seurs.go4lunch.util.Constants.BASE_URL;
+
+import com.seurs.go4lunch.data.remote.places_api.PlacesApi;
+
+import retrofit2.Retrofit;
+
 public class AppContainer {
     private static ViewModelFactory sFactory = null;
 
@@ -11,4 +17,9 @@ public class AppContainer {
         }
         return sFactory;
     }
+
+    public PlacesApi placesApi = new Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .build()
+            .create(PlacesApi.class);
 }
